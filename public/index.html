@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Remove favicon warning -->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/loaders.min.css" />
+
+    <title>Simple Express App</title>
+
+</head>
+<body>
+
+    <div id="wait">
+        <div class="loader-inner pacman">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p id="loading-message">Loading...</p>
+    </div> 
+
+    <div id="app">
+        <div id="left">
+
+            <!-- Shirts -->
+            <div id="front">
+                <img class="img" id="img-front" src="https://portal.themailshark.net/franchisepromoF/Apparels/Apparel_front_12_356_305.png">
+                <div class="canvas" id="cnv-front"></div>
+            </div>
+            <div id="back">
+                <img class="img" id="img-back" src="https://portal.themailshark.net/franchisepromoF/Apparels/Apparel_back_12_356_305.png"/>
+                <div class="canvas" id="cnv-back"></div>
+            </div>
+
+        </div>
+
+
+        <div id="right">
+
+            <!-- Controls -->
+            <button id="talk">Talk to server</button>
+            <p id="response"></p>
+
+            <button id="add-image">Add Rooster</button><br />
+            <button id="toggle-frontback">Show Back</button><br />
+            <button id="files">Make Files</button><br />
+            <select id="shirt-color">
+                <option value="165,42,42" default>Red</option>
+                <option value="0,204,0">Green</option>
+                <option value="255,204,102">Gold</option>
+                <option value="51,153,255">Blue</option>
+            </select>
+
+            <!-- Thumbnail area -->
+            <div id="thumb-area">
+
+            </div>
+            <pre id="print-file-text"></pre>
+            
+        </div>
+    </div>
+
+
+    <!-- jQuery https://jquery.com/ -->
+    <script src="./assets/jquery-3.6.3.min.js"></script>
+
+    <!-- Konva -->
+    <script src="./assets/konva.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
