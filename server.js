@@ -11,20 +11,22 @@ app.use(express.urlencoded({limit:"100mb", extended: true}));
 
 app.use(express.json());
 
-let x = 0;
+/* ---------------------------------------------------------------------- *\
+|  API Demonstration                                                       |
+|  .../hello                                                               |
+\* ---------------------------------------------------------------------- */
 
+let x = 0;
 app.get("/hello", (req, res) => {
-    x++
+    x++;
     res.json({
         message:`${x} (Server) Hello!`
     })
 })
-// Server code here...
-
 
 /* ---------------------------------------------------------------------- *\
-|  Download the shirt images                                              |
-|  .../download-image                                                     |
+|  Download the shirt images                                               |
+|  .../download-image                                                      |
 \* ---------------------------------------------------------------------- */
 
 app.post("/download-image", async(req, res) => {

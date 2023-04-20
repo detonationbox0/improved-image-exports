@@ -422,6 +422,13 @@ $(document).on("click", "#files", () => {
         | Send Data to API                                                         |
         \* ---------------------------------------------------------------------- */
 
+        if (sendToBack.length === 0) {
+            alert("You must add something to one of the canvases to continue.");
+            $("#wait").css("display", "none");
+            showGuides();
+            throw new Error("No objects found on canvases");
+        }
+
         say("Downloading the shirt image...")
         $.post("/download-image", { data:sendToBack })
             .then(() => {
@@ -445,19 +452,22 @@ $(document).on("click", "#files", () => {
 
                 // Release browser back to user.
                 $("#wait").css("display", "none");
+                showGuides();
 
                 // Show the thumbnail, link to the PDF
                 let d = new Date();
-                $("#thumb-area").empty()
+
+                // $("#thumb-area").empty();
 
                 sendToBack.forEach((obj, i) => {
-                    $("#thumb-area").append(`
+                    $("#thumbs").empty().append(`
                         <img class="thumbs" id="thumb" src="thumbs/${i}-proof.png?${d.getTime()}" /><br />
                     `)
                 })
 
+                $("#download").remove()
                 $("#thumb-area").append(`
-                    <a href="thumbs/proof.pdf" download>Download</a>
+                    <a id="download" href="thumbs/proof.pdf" download>Download PDF</a>
                 `)
 
                 // !! Comment Me
@@ -523,5 +533,7 @@ $("#shirt-color").change(function () {
 $("#talk").on("click", () => {
     fetch("/hello")
         .then( (response) => response.json() )
-        .then( (responseJson) => $("#response").text(responseJson.message) )
+        .then( (responseJson) => $("#response")
+                                        .slideDown("fast")
+                                        .text(responseJson.message) )
 })
