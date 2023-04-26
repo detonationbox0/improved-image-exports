@@ -458,9 +458,9 @@ $(document).on("click", "#files", () => {
                 let d = new Date();
 
                 // $("#thumb-area").empty();
-
+                $("#thumbs").empty();
                 sendToBack.forEach((obj, i) => {
-                    $("#thumbs").empty().append(`
+                    $("#thumbs").append(`
                         <img class="thumbs" id="thumb" src="thumbs/${i}-proof.png?${d.getTime()}" /><br />
                     `)
                 })

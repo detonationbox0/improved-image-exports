@@ -2,7 +2,6 @@
 
 from PIL import Image  # For image processing
 import sys  # For accepting arguments
-import os  # For replacing the PNG file extension
 
 
 # Arguments
@@ -13,8 +12,6 @@ x = int(sys.argv[4])  # Number of pixels from the left of the shirt to position 
 y = int(sys.argv[5])  # Number of pixels from the top of the shirt to position the art
 s = float(sys.argv[6])  # Scale of the image in relation to the shirt
 bgColor = sys.argv[7].split(",")  # RGB of shirt's color (ex: 255,255,255)
-
-# pdfFile = os.path.splitext(outFile)[0] + ".pdf"  # The name of the PNG, just with ".pdf" instead
 
 # Load in the images
 bufShirtFile = Image.open(shirtFile)
